@@ -43,11 +43,8 @@ namespace WebApplication1.Controllers
                     _logger.LogWarning($"User with Id={id} not found.");
                     return NotFound($"User with Id={id} not found.");
                 }
-
                 _context.Users.Remove(user);
                 _context.SaveChanges();
-
-                // Zaloguj usuniêcie u¿ytkownika
                 _logger.LogInformation($"The user with Login={user.Login} has been deleted.");
                 return Ok($"The user with Login={user.Login} has been deleted.");
             }
